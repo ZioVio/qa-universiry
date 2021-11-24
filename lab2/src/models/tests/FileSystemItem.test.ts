@@ -10,7 +10,7 @@ const bufferFile = new BufferFile('bufFile');
 const dir = new Directory('dir');
 
 describe.each([logFile, binaryFile, bufferFile, dir])(
-  'FileSystemItem',
+  'FileSystemItem %p',
   (item: FileSystemItem) => {
     let parentDir: Directory;
     beforeEach(() => {
@@ -36,5 +36,20 @@ describe.each([logFile, binaryFile, bufferFile, dir])(
 
         expect(parentDir.items.includes(item)).toBeFalsy();
     });
+
+    it('should be moved to another dir if no parent', () => {
+        item.parent = undefined;
+        parentDir.items = parentDir.items.filter(v => v !== item);
+
+        expect(parentDir.items.includes(item)).toBeFalsy();
+        const anotherDir = new Directory('another');
+
+        expect(anotherDir.items.includes(item)).toBeFalsy();
+
+        item.move(anotherDir);
+
+        expect(item.parent).toEqual(anotherDir);
+        expect(anotherDir.items.includes(item)).toBeTruthy();
+    })
   },
 );

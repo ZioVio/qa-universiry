@@ -23,4 +23,13 @@ describe('LogTextFile', () => {
     const dir = new Directory('dir', [file]);
     expect(file.parent).toEqual(dir);
   });
+
+  it('should append content to the end of the file', () => {
+    const file = new LogTextFile('name');
+    expect(file.read()).toEqual(undefined);
+    file.append('content1');
+    expect(file.read()).toEqual('content1');
+    file.append('content2');
+    expect(file.read()).toEqual('content1content2');
+  });
 });

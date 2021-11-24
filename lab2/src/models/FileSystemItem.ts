@@ -1,3 +1,4 @@
+import { isTemplateExpression } from 'typescript';
 import { Directory } from './Directory';
 import { FileSystem } from './FileSystem';
 
@@ -8,11 +9,18 @@ export abstract class FileSystemItem {
     public parent?: Directory,
   ) {}
 
-  // this can stop being abstract and we can just implement it here
   public delete(): void {
-    // ...
+    this.removeFromParent();
   }
   public move(to: Directory): void {
-    // ...
+    this.removeFromParent();
+    to.addItems([this]);
+  }
+
+  private removeFromParent(): void {
+    if (this.parent) {
+      this.parent.items = this.parent.items.filter(item  => item !== this);
+      this.parent = undefined;
+    }
   }
 }

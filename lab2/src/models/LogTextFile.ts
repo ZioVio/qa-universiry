@@ -5,12 +5,17 @@ import { FileSystemItem } from './FileSystemItem';
 export class LogTextFile extends FileSystemItem {
   constructor(
     name: string,
-    private readonly content?: string,
+    private content?: string,
     ctx?: FileSystem,
     parent?: Directory,
   ) {
     super(name, ctx, parent);
   }
-  public read(): string | undefined {}
-  public append(what: string): void {}
+  public read(): string | undefined {
+    return this.content;
+  }
+  public append(what: string): void {
+    this.content ||= '';
+    this.content += what;
+  }
 }

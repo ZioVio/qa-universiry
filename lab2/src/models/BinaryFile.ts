@@ -12,5 +12,7 @@ export class BinaryFile extends FileSystemItem {
     super(name, ctx, parent);
   }
 
-  public read(): ArrayBuffer | undefined {}
+  public read(): ArrayBuffer | undefined {
+    return this.content;
+  }
 }
