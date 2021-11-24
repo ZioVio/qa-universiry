@@ -2,15 +2,15 @@ import { Directory } from './Directory';
 import { FileSystem } from './FileSystem';
 import { FileSystemItem } from './FileSystemItem';
 
-export class BinaryFile extends FileSystemItem {
+export class LogTextFile extends FileSystemItem {
   constructor(
     name: string,
-    private readonly content?: ArrayBuffer,
+    private readonly content?: string,
     ctx?: FileSystem,
     parent?: Directory,
   ) {
     super(name, ctx, parent);
   }
-
-  public read(): ArrayBuffer | undefined {}
+  public read(): string | undefined {}
+  public append(what: string): void {}
 }

@@ -3,8 +3,8 @@ import { FileSystem } from './FileSystem';
 
 export abstract class FileSystemItem {
   constructor(
-    private ctx: FileSystem,
     public readonly name: string,
+    private ctx?: FileSystem,
     public parent?: Directory,
   ) {}
 

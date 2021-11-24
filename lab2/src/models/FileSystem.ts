@@ -1,5 +1,8 @@
 import { Directory } from './Directory';
 
 export class FileSystem {
-  constructor(public readonly root: Directory) {}
+  private root: Directory;
+  constructor() {
+    // todo impl and create root
+  }
 }
