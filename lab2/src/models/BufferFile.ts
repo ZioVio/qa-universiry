@@ -1,6 +1,5 @@
 import { MAX_BUF_FILE_SIZE } from '../config';
 import { Directory } from './Directory';
-import { FileSystem } from './FileSystem';
 import { FileSystemItem } from './FileSystemItem';
 
 export class BufferFile extends FileSystemItem {

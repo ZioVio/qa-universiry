@@ -1,6 +1,4 @@
-import { isTemplateExpression } from 'typescript';
 import { Directory } from './Directory';
-import { FileSystem } from './FileSystem';
 
 export abstract class FileSystemItem {
   constructor(

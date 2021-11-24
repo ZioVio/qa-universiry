@@ -1,5 +1,4 @@
 import { DIR_MAX_ELEMS } from '../config';
-import { FileSystem } from './FileSystem';
 import { FileSystemItem } from './FileSystemItem';
 
 export class Directory extends FileSystemItem {

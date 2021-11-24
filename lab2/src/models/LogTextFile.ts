@@ -1,5 +1,4 @@
 import { Directory } from './Directory';
-import { FileSystem } from './FileSystem';
 import { FileSystemItem } from './FileSystemItem';
 
 export class LogTextFile extends FileSystemItem {
