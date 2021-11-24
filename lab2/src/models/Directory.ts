@@ -5,8 +5,8 @@ import { FileSystemItem } from './FileSystemItem';
 export class Directory extends FileSystemItem {
   public items: FileSystemItem[] = [];
 
-  constructor(name: string, items: FileSystemItem[] = [], ctx?: FileSystem) {
-    super(name, ctx);
+  constructor(name: string, items: FileSystemItem[] = []) {
+    super(name);
     this.addItems(items);
   }
 

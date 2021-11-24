@@ -1,11 +1,14 @@
-import { fn } from './module';
+import { BinaryFile } from './models/BinaryFile';
+import { BufferFile } from './models/BufferFile';
+import { Directory } from './models/Directory';
+import { FileSystem } from './models/FileSystem';
+import { LogTextFile } from './models/LogTextFile';
 
-console.log(fn(2));
+const root = new Directory('root', [
+  new Directory('item1', [new BinaryFile('bin'), new BufferFile('buf')]),
+  new LogTextFile('logfile'),
+]);
 
-
-/**
- * TEST CASES
- * File with name exists
- * No file to find, or remove
- * 
- */
+const fs = new FileSystem(root);
+// todo add methods for fs to find files, etc
+console.log('fs:', fs);

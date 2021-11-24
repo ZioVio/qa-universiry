@@ -6,10 +6,9 @@ export class LogTextFile extends FileSystemItem {
   constructor(
     name: string,
     private content?: string,
-    ctx?: FileSystem,
     parent?: Directory,
   ) {
-    super(name, ctx, parent);
+    super(name, parent);
   }
   public read(): string | undefined {
     return this.content;

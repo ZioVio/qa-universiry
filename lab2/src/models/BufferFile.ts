@@ -8,10 +8,9 @@ export class BufferFile extends FileSystemItem {
   constructor(
     name: string,
     initialContent: string[] = [],
-    ctx?: FileSystem,
     parent?: Directory,
   ) {
-    super(name, ctx, parent);
+    super(name, parent);
     initialContent.forEach(this.push.bind(this));
   }
 

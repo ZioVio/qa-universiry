@@ -5,7 +5,6 @@ import { FileSystem } from './FileSystem';
 export abstract class FileSystemItem {
   constructor(
     public readonly name: string,
-    private ctx?: FileSystem,
     public parent?: Directory,
   ) {}
 

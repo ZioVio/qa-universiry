@@ -6,10 +6,9 @@ export class BinaryFile extends FileSystemItem {
   constructor(
     name: string,
     private readonly content?: ArrayBuffer,
-    ctx?: FileSystem,
     parent?: Directory,
   ) {
-    super(name, ctx, parent);
+    super(name, parent);
   }
 
   public read(): ArrayBuffer | undefined {
